@@ -1,0 +1,82 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/IvCalc.js"></script>
+	<script src="js/StatsBarRenderer.js"></script>
+	<script src="js/ivNumHandler.js"></script>
+</head>
+<body>
+
+<div class="displayBlock">
+IV Numbers: 
+<input class="takeContainerWidth" type="number" min="0" max="151515" name="txtIvNum" id="txtIvNum" placeholder="IV Numbers" oninput="ivNumHandler(this)" />
+</div>
+
+<div class="displayBlock" id="divCanvas">
+	<canvas id="canvasA1" class="statsBarWidth" height="20" style="border:1px solid #d3d3d3;">
+		Your browser does not support the HTML5 canvas tag.
+	</canvas>
+	<canvas id="canvasA2" class="statsBarWidth" height="20" style="border:1px solid #d3d3d3;">
+		Your browser does not support the HTML5 canvas tag.
+	</canvas>
+	<canvas id="canvasA3" class="statsBarWidth" height="20" style="border:1px solid #d3d3d3;">
+		Your browser does not support the HTML5 canvas tag.
+	</canvas>
+	<br />
+	<canvas id="canvasD1" class="statsBarWidth" height="20" style="border:1px solid #d3d3d3;">
+		Your browser does not support the HTML5 canvas tag.
+	</canvas>
+	<canvas id="canvasD2" class="statsBarWidth" height="20" style="border:1px solid #d3d3d3;">
+		Your browser does not support the HTML5 canvas tag.
+	</canvas>
+	<canvas id="canvasD3" class="statsBarWidth" height="20" style="border:1px solid #d3d3d3;">
+		Your browser does not support the HTML5 canvas tag.
+	</canvas>
+	<br />
+	<canvas id="canvasS1" class="statsBarWidth" height="20" style="border:1px solid #d3d3d3;">
+		Your browser does not support the HTML5 canvas tag.
+	</canvas>
+	<canvas id="canvasS2" class="statsBarWidth" height="20" style="border:1px solid #d3d3d3;">
+		Your browser does not support the HTML5 canvas tag.
+	</canvas>
+	<canvas id="canvasS3" class="statsBarWidth" height="20" style="border:1px solid #d3d3d3;">
+		Your browser does not support the HTML5 canvas tag.
+	</canvas> 
+</div>
+
+<div class="displayBlock">
+Resultant Pokemon Name: 
+<input class="takeContainerWidth greenBg" type="text" name="txtResult" id="txtResult" readonly></input>
+</div>
+
+<div class="displayBlock">
+<input type="button" name="btnCopy" id="btnCopy" value="Copy"></input>
+</div>
+
+<script>
+//IvCalc.calc();
+
+
+
+document.getElementById('btnCopy').onclick = function() {
+	copyTextContent(document.getElementById('txtResult'));
+};
+
+var copyTextContent = function(textfield) {
+	textfield.select();
+	
+	try {
+		var successful = document.execCommand('copy');
+		var msg = successful ? 'successful' : 'unsuccessful';
+		console.log('Copying text command was ' + msg);
+	} catch (err) {
+		console.log('Oops, unable to copy');
+	}
+	
+	textfield.blur();
+};
+
+</script>
+</body>
+</html>

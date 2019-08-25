@@ -1,0 +1,41 @@
+.displayBlock {
+    display: block;
+	padding-bottom: 15px;
+    overflow: auto;
+}
+
+.takeContainerWidth {
+    width: 100%;
+}
+
+.leftColumn {
+    width: 49%;
+	float: left;
+}
+
+.rightColumn {
+    width: 49%;
+	float: right;
+}
+
+.greenBg {
+    /*background-color: #4CAF50;*/
+	background-color: #99cc66;
+}
+
+.tounchFriendlyFont {
+    font-size: 45px;
+}
+/*[type=checkbox]*/
+input,select {
+    font-size: 45px;
+    height: 57px;
+}
+
+input[type=checkbox] {
+    width: 57px;
+}
+
+statsBarWidth {
+    width: 33%;
+}
