@@ -5,8 +5,15 @@
 	<script src="js/IvCalc.js"></script>
 	<script src="js/StatsBarRenderer.js"></script>
 	<script src="js/ivNumHandler.js"></script>
+	<script>
+	  const onResize = function() {
+	    console.log('body resized.');
+	    let ivObj = IvCalc.calc(document.getElementById('txtIvNum').value);
+	    StatsBarRenderer.draw(ivObj);
+	  }
+	</script>
 </head>
-<body>
+<body onresize="onResize(this)">
 
 <div class="displayBlock">
 IV Numbers: 
@@ -14,50 +21,63 @@ IV Numbers:
 </div>
 
 <div class="displayBlock" id="divCanvas">
-	<canvas id="canvasA1" class="statsBarWidth" height="20" style="border:1px solid #d3d3d3;">
+  
+	<canvas id="canvasA1" class="statsBarStyle statsBarStyle-left">
 		Your browser does not support the HTML5 canvas tag.
 	</canvas>
-	<canvas id="canvasA2" class="statsBarWidth" height="20" style="border:1px solid #d3d3d3;">
+	<canvas id="canvasA2" class="statsBarStyle">
 		Your browser does not support the HTML5 canvas tag.
 	</canvas>
-	<canvas id="canvasA3" class="statsBarWidth" height="20" style="border:1px solid #d3d3d3;">
+	<canvas id="canvasA3" class="statsBarStyle statsBarStyle-right">
 		Your browser does not support the HTML5 canvas tag.
 	</canvas>
+	
 	<br />
-	<canvas id="canvasD1" class="statsBarWidth" height="20" style="border:1px solid #d3d3d3;">
+	<canvas id="canvasD1" class="statsBarStyle statsBarStyle-left">
 		Your browser does not support the HTML5 canvas tag.
 	</canvas>
-	<canvas id="canvasD2" class="statsBarWidth" height="20" style="border:1px solid #d3d3d3;">
+	<canvas id="canvasD2" class="statsBarStyle">
 		Your browser does not support the HTML5 canvas tag.
 	</canvas>
-	<canvas id="canvasD3" class="statsBarWidth" height="20" style="border:1px solid #d3d3d3;">
+	<canvas id="canvasD3" class="statsBarStyle statsBarStyle-right">
 		Your browser does not support the HTML5 canvas tag.
 	</canvas>
+	
 	<br />
-	<canvas id="canvasS1" class="statsBarWidth" height="20" style="border:1px solid #d3d3d3;">
+	<canvas id="canvasS1" class="statsBarStyle statsBarStyle-left">
 		Your browser does not support the HTML5 canvas tag.
 	</canvas>
-	<canvas id="canvasS2" class="statsBarWidth" height="20" style="border:1px solid #d3d3d3;">
+	<canvas id="canvasS2" class="statsBarStyle">
 		Your browser does not support the HTML5 canvas tag.
 	</canvas>
-	<canvas id="canvasS3" class="statsBarWidth" height="20" style="border:1px solid #d3d3d3;">
+	<canvas id="canvasS3" class="statsBarStyle statsBarStyle-right">
 		Your browser does not support the HTML5 canvas tag.
-	</canvas> 
+	</canvas>
+	
 </div>
 
+Pokemon IV%: 
 <div class="displayBlock">
-Resultant Pokemon Name: 
-<input class="takeContainerWidth greenBg" type="text" name="txtResult" id="txtResult" readonly />
+  <input class="float-left txt-result-style greenBg" type="text" name="txtResult" id="txtResult" readonly />
+  <input class="float-left btn-copy-style" type="button" name="btnCopy" id="btnCopy" value="Copy" />
 </div>
 
+<!--
 <div class="displayBlock">
 <input type="button" name="btnCopy" id="btnCopy" value="Copy" />
+</div>
+-->
+
+<div class="displayBlock">
+  <img src="images/1kbj8qx1kja31.png" />
+  <br />
+  Image from: <a href="https://pokemongohub.net/post/guide/new-pokemon-go-appraisal-system-guide/">pokemongohub.net</a>
 </div>
 
 <script>
 //IvCalc.calc();
-
-
+//StatsBarRenderer.clear();
+onResize();
 
 document.getElementById('btnCopy').onclick = function() {
 	copyTextContent(document.getElementById('txtResult'));

@@ -10,7 +10,13 @@ const ivNumHandler= function(elem) {
 		else if(num > elem.max) elem.value = elem.max;
 		
 		let resultElem = document.getElementById('txtResult');
-		if(elem.value.length == 6) {
+		
+		let ivObj = IvCalc.calc(elem.value);
+		resultElem.value = ivObj.iv;
+		
+		StatsBarRenderer.draw(ivObj);
+		
+		/*if(elem.value.length == 6) {
 		  elem.blur();
 		  
 		  if(!IvCalc.isValid(elem.value)) {
@@ -21,12 +27,12 @@ const ivNumHandler= function(elem) {
 			let ivObj = IvCalc.calc(elem.value);
 			resultElem.value = ivObj.iv;
 			
-			StatsBarRenderer.draw(document.getElementById('divCanvas'), ivObj);
+			StatsBarRenderer.draw(ivObj);
 		}
 		else {
 			resultElem.value = '';
-			StatsBarRenderer.clear(document.getElementById('divCanvas'));
-		}
+			StatsBarRenderer.clear();
+		}*/
 	}
 };
 
