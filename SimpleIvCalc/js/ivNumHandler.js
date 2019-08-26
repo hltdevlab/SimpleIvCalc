@@ -1,4 +1,6 @@
 const ivNumHandler= function(elem) {
+  //console.log('ivNumHandler');
+  
 	if(elem.value !== '') {
 		if(elem.value.length > 6) {	// limit maxlength to 6.
 			elem.value = elem.value.slice(0, 6);
@@ -12,24 +14,26 @@ const ivNumHandler= function(elem) {
 		let resultElem = document.getElementById('txtResult');
 		
 		let ivObj = IvCalc.calc(elem.value);
-		resultElem.value = ivObj.iv;
+		if(!IvCalc.isValid(elem.value)) {
+		  resultElem.value = 'invalid input';
+		  return;
+		}
+		else {
+		  resultElem.value = ivObj.iv;
+		}
 		
 		StatsBarRenderer.draw(ivObj);
 		
-		/*if(elem.value.length == 6) {
+		if(elem.value.length == 6) {
 		  elem.blur();
-		  
-		  if(!IvCalc.isValid(elem.value)) {
-		    resultElem.value = 'invalid input';
-		    return;
-		  }
-		  
+		  /*
 			let ivObj = IvCalc.calc(elem.value);
 			resultElem.value = ivObj.iv;
 			
 			StatsBarRenderer.draw(ivObj);
+			*/
 		}
-		else {
+		/*else {
 			resultElem.value = '';
 			StatsBarRenderer.clear();
 		}*/

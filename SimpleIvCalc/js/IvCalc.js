@@ -36,9 +36,9 @@ const IvCalc  = class {
 	}
 	
 	static isValid(ivNumStr) {
-		if(ivNumStr === undefined || ivNumStr === null) return false;
-		if(ivNumStr === "") return false;
-		if(ivNumStr.length !== 6) return false;
+		if(ivNumStr === undefined || ivNumStr === null) return true;
+		if(ivNumStr === "") return true;
+		//if(ivNumStr.length !== 6) return true;
 		
 		if(ivNumStr.length>=2) {
 			let a = parseInt(ivNumStr.substring(0, 2));
