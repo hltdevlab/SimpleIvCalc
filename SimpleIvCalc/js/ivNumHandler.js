@@ -1,5 +1,5 @@
-const ivNumHandler= function (elem) {
-	if(elem.value != '') {
+const ivNumHandler= function(elem) {
+	if(elem.value !== '') {
 		if(elem.value.length > 6) {	// limit maxlength to 6.
 			elem.value = elem.value.slice(0, 6);
 		}
@@ -11,6 +11,13 @@ const ivNumHandler= function (elem) {
 		
 		let resultElem = document.getElementById('txtResult');
 		if(elem.value.length == 6) {
+		  elem.blur();
+		  
+		  if(!IvCalc.isValid(elem.value)) {
+		    resultElem.value = 'invalid input';
+		    return;
+		  }
+		  
 			let ivObj = IvCalc.calc(elem.value);
 			resultElem.value = ivObj.iv;
 			
